@@ -1,0 +1,43 @@
+programa
+{
+	funcao inicio()
+	{
+		inteiro q
+		real n[100]
+		real menor
+		real maior
+		real soma = 0
+		inteiro i
+
+		escreva("Quantos numeros: ")
+		leia(q)
+
+		para(i = 0; i < q; i++)
+		{
+			escreva("Digite um numero: ")
+			leia(n[i])
+
+			soma = soma + n[i]
+		}
+
+		menor = n[0]
+		maior = n[0]
+
+		para(i = 1; i < q; i++)
+		{
+			se(n[i] < menor)
+			{
+				menor = n[i]
+			}
+
+			se(n[i] > maior)
+			{
+				maior = n[i]
+			}
+		}
+
+		escreva("Menor: ", menor, "\n")
+		escreva("Maior: ", maior, "\n")
+		escreva("Soma: ", soma)
+	}
+}
