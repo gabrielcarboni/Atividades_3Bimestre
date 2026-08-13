@@ -1,0 +1,32 @@
+programa
+{
+	funcao inteiro potencia(inteiro base, inteiro expoente)
+	{
+		inteiro resultado = 1
+		inteiro i
+
+		para(i = 1; i <= expoente; i++)
+		{
+			resultado = resultado * base
+		}
+
+		retorne resultado
+	}
+
+	funcao inicio()
+	{
+		inteiro base
+		inteiro expoente
+		inteiro resultado
+
+		escreva("Digite a base: ")
+		leia(base)
+
+		escreva("Digite o expoente: ")
+		leia(expoente)
+
+		resultado = potencia(base, expoente)
+
+		escreva("Resultado: ", resultado)
+	}
+}
