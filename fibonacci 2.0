@@ -1,0 +1,23 @@
+programa
+{
+	funcao inicio()
+	{
+		inteiro n
+		inteiro a = 0
+		inteiro b = 1
+		inteiro r
+		inteiro i
+
+		escreva("Digite a quantidade de termos: ")
+		leia(n)
+
+		para(i = 1; i <= n; i++)
+		{
+			escreva(a, " ")
+
+			r = a + b
+			a = b
+			b = r
+		}
+	}
+}
