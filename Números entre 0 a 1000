@@ -1,0 +1,51 @@
+programa
+{
+	funcao inicio()
+	{
+		inteiro q
+		real n[100]
+		real menor
+		real maior
+		real soma = 0
+		real x
+		inteiro i
+
+		escreva("Quantos numeros: ")
+		leia(q)
+
+		para(i = 0; i < q; i++)
+		{
+			escreva("Digite um numero entre 0 e 1000: ")
+			leia(x)
+
+			enquanto(x < 0 ou x > 1000)
+			{
+				escreva("Numero invalido! Digite novamente: ")
+				leia(x)
+			}
+
+			n[i] = x
+			soma = soma + n[i]
+		}
+
+		menor = n[0]
+		maior = n[0]
+
+		para(i = 1; i < q; i++)
+		{
+			se(n[i] < menor)
+			{
+				menor = n[i]
+			}
+
+			se(n[i] > maior)
+			{
+				maior = n[i]
+			}
+		}
+
+		escreva("Menor: ", menor, "\n")
+		escreva("Maior: ", maior, "\n")
+		escreva("Soma: ", soma)
+	}
+}
