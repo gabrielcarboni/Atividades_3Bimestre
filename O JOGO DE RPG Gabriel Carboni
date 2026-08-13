@@ -1,0 +1,438 @@
+programa
+{
+  
+inclua biblioteca Util
+
+	funcao inicio()
+	{
+		// =========================================
+		// LISTAS DO JOGO
+		// =========================================
+
+		cadeia reinos[10]
+		cadeia adjetivos[10]
+		cadeia poderes[10]
+		cadeia inimigos[10]
+
+		inteiro vidaInimigo[10]
+		inteiro ataqueInimigo[10]
+		inteiro premio[10]
+
+		// =========================================
+		// 10 REINOS
+		// =========================================
+
+		reinos[0] = "Reino da Aurora"
+		reinos[1] = "Reino das Sombras"
+		reinos[2] = "Reino de Cristal"
+		reinos[3] = "Reino do Trovão"
+		reinos[4] = "Reino do Gelo"
+		reinos[5] = "Reino das Cinzas"
+		reinos[6] = "Reino da Floresta"
+		reinos[7] = "Reino do Deserto"
+		reinos[8] = "Reino Celestial"
+		reinos[9] = "Reino do Caos"
+
+		// =========================================
+		// 10 ADJETIVOS
+		// =========================================
+
+		adjetivos[0] = "Lendario"
+		adjetivos[1] = "Imortal"
+		adjetivos[2] = "Implacavel"
+		adjetivos[3] = "Supremo"
+		adjetivos[4] = "Misterioso"
+		adjetivos[5] = "Invencivel"
+		adjetivos[6] = "Sombrio"
+		adjetivos[7] = "Divino"
+		adjetivos[8] = "Destruidor"
+		adjetivos[9] = "Eterno"
+
+		// =========================================
+		// 10 PODERES
+		// =========================================
+
+		poderes[0] = "Manipulacao do Tempo"
+		poderes[1] = "Manipulacao da Realidade"
+		poderes[2] = "Telecinese"
+		poderes[3] = "Teletransporte"
+		poderes[4] = "Regeneracao"
+		poderes[5] = "Controle da Gravidade"
+		poderes[6] = "Duplicacao"
+		poderes[7] = "Controle dos Elementos"
+		poderes[8] = "Invisibilidade"
+		poderes[9] = "Velocidade Suprema"
+
+		// =========================================
+		// INIMIGOS
+		// =========================================
+
+		inimigos[0] = "Goblin"
+		inimigos[1] = "Cavaleiro Sombrio"
+		inimigos[2] = "Golem de Cristal"
+		inimigos[3] = "Fera do Trovao"
+		inimigos[4] = "Guardiao do Gelo"
+		inimigos[5] = "Demonio das Cinzas"
+		inimigos[6] = "Monstro da Floresta"
+		inimigos[7] = "Rei do Deserto"
+		inimigos[8] = "Anjo Caido"
+		inimigos[9] = "Senhor do Caos"
+
+		// =========================================
+		// VIDA DOS INIMIGOS
+		// =========================================
+
+		vidaInimigo[0] = 40
+		vidaInimigo[1] = 50
+		vidaInimigo[2] = 60
+		vidaInimigo[3] = 70
+		vidaInimigo[4] = 80
+		vidaInimigo[5] = 90
+		vidaInimigo[6] = 100
+		vidaInimigo[7] = 110
+		vidaInimigo[8] = 120
+		vidaInimigo[9] = 150
+
+		// =========================================
+		// ATAQUE DOS INIMIGOS
+		// =========================================
+
+		ataqueInimigo[0] = 8
+		ataqueInimigo[1] = 10
+		ataqueInimigo[2] = 12
+		ataqueInimigo[3] = 14
+		ataqueInimigo[4] = 16
+		ataqueInimigo[5] = 18
+		ataqueInimigo[6] = 20
+		ataqueInimigo[7] = 22
+		ataqueInimigo[8] = 25
+		ataqueInimigo[9] = 30
+
+		// =========================================
+		// PREMIOS
+		// =========================================
+
+		premio[0] = 10
+		premio[1] = 20
+		premio[2] = 30
+		premio[3] = 40
+		premio[4] = 50
+		premio[5] = 60
+		premio[6] = 70
+		premio[7] = 80
+		premio[8] = 100
+		premio[9] = 150
+
+		// =========================================
+		// VARIAVEIS DO JOGADOR
+		// =========================================
+
+		cadeia nome
+		cadeia titulo
+		cadeia poder
+
+		inteiro vida = 100
+		inteiro ataque = 20
+		inteiro pocoes = 3
+		inteiro moedas = 0
+
+		inteiro a
+		inteiro p
+		inteiro r
+
+		inteiro fase = 0
+		inteiro opcao
+		inteiro acao
+
+		// =========================================
+		// SORTEIOS
+		// =========================================
+
+		a = Util.sorteia (0, 9)
+		p = Util.sorteia (0, 9)
+
+		titulo = adjetivos[a]
+		poder = poderes[p]
+
+		// =========================================
+		// BONUS DO ADJETIVO
+		// =========================================
+
+		se(a == 0)
+		{
+			ataque = ataque + 10
+		}
+
+		se(a == 1)
+		{
+			vida = vida + 40
+		}
+
+		se(a == 2)
+		{
+			ataque = ataque + 15
+		}
+
+		se(a == 3)
+		{
+			vida = vida + 20
+			ataque = ataque + 10
+		}
+
+		se(a == 4)
+		{
+			pocoes = pocoes + 2
+		}
+
+		se(a == 5)
+		{
+			vida = vida + 50
+		}
+
+		se(a == 6)
+		{
+			ataque = ataque + 5
+		}
+
+		se(a == 7)
+		{
+			vida = vida + 25
+		}
+
+		se(a == 8)
+		{
+			ataque = ataque + 20
+		}
+
+		se(a == 9)
+		{
+			vida = vida + 30
+			ataque = ataque + 15
+		}
+
+		// =========================================
+		// BONUS DOS PODERES
+		// =========================================
+
+		se(p == 0)
+		{
+			ataque = ataque + 30
+		}
+
+		se(p == 1)
+		{
+			ataque = ataque + 40
+		}
+
+		se(p == 2)
+		{
+			ataque = ataque + 25
+		}
+
+		se(p == 3)
+		{
+			ataque = ataque + 20
+		}
+
+		se(p == 4)
+		{
+			vida = vida + 60
+		}
+
+		se(p == 5)
+		{
+			ataque = ataque + 35
+		}
+
+		se(p == 6)
+		{
+			ataque = ataque + 45
+		}
+
+		se(p == 7)
+		{
+			ataque = ataque + 30
+		}
+
+		se(p == 8)
+		{
+			ataque = ataque + 15
+		}
+
+		se(p == 9)
+		{
+			ataque = ataque + 50
+		}
+
+		// =========================================
+		// COMECO DO JOGO
+		// =========================================
+
+		escreva("====================================\n")
+		escreva("          RPG AVENTURA\n")
+		escreva("====================================\n")
+
+		escreva("Digite o nome do seu personagem: ")
+		leia(nome)
+
+		escreva("\nSeu personagem foi criado!\n")
+		escreva("Nome: ", nome, "\n")
+		escreva("Titulo: ", titulo, "\n")
+		escreva("Poder: ", poder, "\n")
+		escreva("Vida: ", vida, "\n")
+		escreva("Ataque: ", ataque, "\n")
+
+		// =========================================
+		// JOGO
+		// =========================================
+
+		enquanto(vida > 0 e fase < 10)
+		{
+			escreva("\n====================================\n")
+			escreva("Fase: ", fase + 1, "/10\n")
+			escreva("Vida: ", vida, "\n")
+			escreva("Ataque: ", ataque, "\n")
+			escreva("Pocoes: ", pocoes, "\n")
+			escreva("Moedas: ", moedas, "\n")
+			escreva("====================================\n")
+
+			escreva("1 - Explorar\n")
+			escreva("2 - Ver status\n")
+			escreva("3 - Sair\n")
+			escreva("Escolha: ")
+			leia(opcao)
+
+			escolha(opcao)
+			{
+				caso 1:
+
+					// Sorteia um reino
+					r = Util.sorteia(0, 9)
+
+					escreva("\nVoce entrou no ", reinos[r], "!\n")
+					escreva("Um inimigo apareceu: ", inimigos[fase], "!\n")
+
+					inteiro vidaE = vidaInimigo[fase]
+
+					enquanto(vida > 0 e vidaE > 0)
+					{
+						escreva("\n")
+						escreva("Sua vida: ", vida, "\n")
+						escreva("Vida do inimigo: ", vidaE, "\n")
+						escreva("1 - Atacar\n")
+						escreva("2 - Usar pocao\n")
+						escreva("Escolha: ")
+						leia(acao)
+
+						escolha(acao)
+						{
+							caso 1:
+
+								// Chance aleatoria de golpe poderoso
+								inteiro golpe = Util.sorteia(1, 3)
+
+								se(golpe == 3)
+								{
+									escreva("\nGOLPE ESPECIAL!\n")
+									vidaE = vidaE - ataque * 2
+								}
+								senao
+								{
+									escreva("\nVoce atacou!\n")
+									vidaE = vidaE - ataque
+								}
+
+								se(vidaE > 0)
+								{
+									vida = vida - ataqueInimigo[fase]
+									escreva("O inimigo atacou!\n")
+								}
+
+								pare
+
+							caso 2:
+
+								se(pocoes > 0)
+								{
+									vida = vida + 30
+
+									se(vida > 200)
+									{
+										vida = 200
+									}
+
+									pocoes = pocoes - 1
+
+									escreva("\nVoce recuperou vida!\n")
+
+									vida = vida - ataqueInimigo[fase]
+								}
+								senao
+								{
+									escreva("\nVoce nao tem pocoes!\n")
+								}
+
+								pare
+
+							caso contrario:
+								escreva("\nOpcao invalida!\n")
+						}
+					}
+
+					se(vida > 0)
+					{
+						escreva("\nVoce derrotou ", inimigos[fase], "!\n")
+						escreva("Voce ganhou ", premio[fase], " moedas!\n")
+
+						moedas = moedas + premio[fase]
+						fase++
+					}
+
+					pare
+
+				caso 2:
+
+					escreva("\n========== STATUS ==========\n")
+					escreva("Nome: ", nome, "\n")
+					escreva("Titulo: ", titulo, "\n")
+					escreva("Poder: ", poder, "\n")
+					escreva("Vida: ", vida, "\n")
+					escreva("Ataque: ", ataque, "\n")
+					escreva("Pocoes: ", pocoes, "\n")
+					escreva("Moedas: ", moedas, "\n")
+					escreva("============================\n")
+
+					pare
+
+				caso 3:
+
+					escreva("\nVoce saiu do jogo.\n")
+					retorne
+
+				caso contrario:
+					escreva("\nOpcao invalida!\n")
+			}
+		}
+
+		// =========================================
+		// FINAL
+		// =========================================
+
+		se(vida <= 0)
+		{
+			escreva("\n====================================\n")
+			escreva("             GAME OVER\n")
+			escreva("====================================\n")
+			escreva("Seu personagem foi derrotado.\n")
+		}
+		senao
+		{
+			escreva("\n====================================\n")
+			escreva("          VOCE VENCEU!\n")
+			escreva("====================================\n")
+			escreva("Parabens, ", nome, " ", titulo, "!\n")
+			escreva("Seu poder era: ", poder, "\n")
+			escreva("Moedas conquistadas: ", moedas, "\n")
+		}
+	}
+}
