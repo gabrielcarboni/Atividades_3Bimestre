@@ -1,0 +1,19 @@
+programa
+{
+	funcao inicio()
+	{
+		inteiro n
+		inteiro fat = 1
+		inteiro i
+
+		escreva("Digite um numero: ")
+		leia(n)
+
+		para(i = 1; i <= n; i++)
+		{
+			fat = fat * i
+		}
+
+		escreva("Fatorial: ", fat)
+	}
+}
